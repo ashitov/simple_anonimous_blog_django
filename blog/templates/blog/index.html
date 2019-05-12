@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style type="text/css">
+        body {color: red}
+    </style>
+</head>
+
+<body>
+<div style="width: 100%; padding-left: 15%; padding-right: 15%">
+{% if notes %}
+    {%  for note in notes %}
+        <div class="jumbotron" style="border: 1px red">
+        {{note.text}}
+        </div>
+    {%  endfor %}
+{%  endif %}
+</div>
+<div style="width: 100%; padding-left: 15%; padding-right: 15%">
+<form name="input_form" action="" method="post">
+    {% csrf_token %}
+    <label for="text">Текст</label>
+    <textarea type="textarea" name="text" id="text" rows="4" cols="87"></textarea>
+    <input type="submit" name="submit" value="Отправить">
+</form>
+</div>
+</body>
+</html>
